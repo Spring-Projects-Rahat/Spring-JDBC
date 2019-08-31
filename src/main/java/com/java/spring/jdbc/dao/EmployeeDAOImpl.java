@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.java.spring.jdbc.Employee;
+import com.java.spring.jdbc.constant.JDBCConstant;
 
 @Component
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -27,7 +28,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public void save(Employee employee) {
-		String query = "insert into Employee (id, name, role) values (?,?,?)";
+		String query = "insert into " +JDBCConstant.EmployeeTable+" (id, name, role) values (?,?,?)";
 		Connection con = null;
 		PreparedStatement ps = null;
 		try{
@@ -54,7 +55,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public Employee getById(int id) {
-		String query = "select name, role from Employee where id = ?";
+		String query = "select name, role from " +JDBCConstant.EmployeeTable+" where id = ?";
 		Employee emp = null;
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -89,7 +90,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public void update(Employee employee) {
-		String query = "update Employee set name=?, role=? where id=?";
+		String query = "update " +JDBCConstant.EmployeeTable+" set name=?, role=? where id=?";
 		Connection con = null;
 		PreparedStatement ps = null;
 		try{

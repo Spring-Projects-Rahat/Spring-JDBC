@@ -21,8 +21,8 @@ public class TestClientJDBC {
 				Employee employee = new Employee();
 				int rand = new Random().nextInt(1000);
 				employee.setId(rand);
-				employee.setName("Pankaj");
-				employee.setRole("Java Developer");
+				employee.setName("Rahat");
+				employee.setRole("Senior Programmer");
 				//Create
 				employeeDAO.save(employee);
 				
